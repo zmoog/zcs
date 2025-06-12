@@ -27,7 +27,7 @@ type Params struct {
 type RealtimeDataResponse struct {
 	RealtimeData struct {
 		Params struct {
-			InverterMetrics []map[string]InverterMetrics `json:"value"`
+			Value []map[string]InverterMetrics `json:"value"`
 		} `json:"params"`
 		Success bool `json:"success"`
 	} `json:"realtimeData"`

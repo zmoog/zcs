@@ -54,7 +54,7 @@ var fetchRealtimeCmd = &cobra.Command{
 		})
 
 		// Add the data rows
-		for _, v := range data.RealtimeData.Params.InverterMetrics {
+		for _, v := range data.RealtimeData.Params.Value {
 			for _, v := range v {
 				table = append(table, []string{
 					fmt.Sprintf("%.0f W", v.PowerGenerating),
