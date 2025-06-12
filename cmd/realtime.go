@@ -48,20 +48,22 @@ var fetchRealtimeCmd = &cobra.Command{
 			"Power exporting",
 			"Power charging",
 			"Power discharging",
+			"Energy consuming",
 			"Battery level",
 			"Last update",
 		})
 
 		// Add the data rows
-		for _, v := range data.RealtimeData.Params.Value {
+		for _, v := range data.RealtimeData.Params.InverterMetrics {
 			for _, v := range v {
 				table = append(table, []string{
-					fmt.Sprintf("%.2f", v.PowerGenerating),
-					fmt.Sprintf("%.2f", v.PowerConsuming),
-					fmt.Sprintf("%.2f", v.PowerImporting),
-					fmt.Sprintf("%.2f", v.PowerExporting),
-					fmt.Sprintf("%.2f", v.PowerCharging),
-					fmt.Sprintf("%.2f", v.PowerDischarging),
+					fmt.Sprintf("%.0f W", v.PowerGenerating),
+					fmt.Sprintf("%.0f W", v.PowerConsuming),
+					fmt.Sprintf("%.0f W", v.PowerImporting),
+					fmt.Sprintf("%.0f W", v.PowerExporting),
+					fmt.Sprintf("%.0f W", v.PowerCharging),
+					fmt.Sprintf("%.0f W", v.PowerDischarging),
+					fmt.Sprintf("%.2f kWh", v.EnergyConsuming),
 					fmt.Sprintf("%d%%", v.BatterySoC),
 					v.LastUpdate.String(),
 				})
